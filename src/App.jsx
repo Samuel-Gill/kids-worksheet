@@ -85,35 +85,37 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen">
-      <Navbar activeSection={activeSection} />
-      <main>
-        <HeroSection />
-        <SentenceGenerator
-          sentence={sentence}
-          setSentence={setSentence}
-          traceStyle={traceStyle}
-          setTraceStyle={setTraceStyle}
-          fontFamily={fontFamily}
-          setFontFamily={setFontFamily}
-          onGenerate={handleGenerate}
-          onClear={handleClear}
-          worksheetLines={worksheetLines}
-        />
-        <AlphabetsSection />
-        <ShapesSection />
-        <CountingSection />
-        <PoemsSection onSelect={handleSelectPoem} />
-        <WorksheetPreview
-          ref={worksheetRef}
-          sentence={submittedSentence}
-          lines={worksheetLines}
-          traceStyle={traceStyle}
-          fontFamily={fontFamily}
-          onDownloadPdf={handleDownloadPdf}
-        />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-sky-50 to-yellow-50 font-display text-slate-700">
+      <div className="min-h-screen">
+        <Navbar activeSection={activeSection} />
+        <main>
+          <HeroSection />
+          <SentenceGenerator
+            sentence={sentence}
+            setSentence={setSentence}
+            traceStyle={traceStyle}
+            setTraceStyle={setTraceStyle}
+            fontFamily={fontFamily}
+            setFontFamily={setFontFamily}
+            onGenerate={handleGenerate}
+            onClear={handleClear}
+            worksheetLines={worksheetLines}
+          />
+          <AlphabetsSection />
+          <ShapesSection />
+          <CountingSection />
+          <PoemsSection onSelect={handleSelectPoem} />
+          <WorksheetPreview
+            ref={worksheetRef}
+            sentence={submittedSentence}
+            lines={worksheetLines}
+            traceStyle={traceStyle}
+            fontFamily={fontFamily}
+            onDownloadPdf={handleDownloadPdf}
+          />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply m-0 bg-gradient-to-b from-rose-50 via-sky-50 to-yellow-50 font-display text-slate-700;
+  @apply m-0;
 }
 
 @media print {
