@@ -16,6 +16,7 @@ export default {
       },
       fontFamily: {
         display: ['"Trebuchet MS"', '"Comic Sans MS"', 'sans-serif'],
+        tracing: ['"Raleway Dots"', 'cursive'],
       },
       backgroundImage: {
         confetti:

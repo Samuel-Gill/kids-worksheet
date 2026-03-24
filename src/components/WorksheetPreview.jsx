@@ -1,22 +1,20 @@
 import { forwardRef } from 'react';
 
-function TraceLine({ text, styleVariant, fontFamily }) {
-  const lineStyle =
-    styleVariant === 'dashed'
-      ? 'text-transparent [background-image:linear-gradient(90deg,rgba(148,163,184,0.9)_70%,transparent_0)] [background-position:0_100%] [background-size:16px_2px] bg-repeat-x [-webkit-text-stroke:1.2px_rgba(148,163,184,0.95)]'
-      : 'text-transparent [-webkit-text-stroke:1.2px_rgba(148,163,184,0.9)] [text-shadow:3px_0_0_rgba(255,255,255,0.8)]';
-
+function TraceLine({ text }) {
   return (
     <div className="border-b border-dashed border-slate-200 py-3">
-      <p className={`text-[1.9rem] font-black leading-tight sm:text-[2.2rem] ${lineStyle}`} style={{ fontFamily }}>
-        {text}
-      </p>
+<p
+  className="text-[3rem] tracking-[0.25em] text-gray-400"
+  style={{ fontFamily: '"Raleway Dots", cursive' }}
+>
+  {text}
+</p>
     </div>
   );
 }
 
 const WorksheetPreview = forwardRef(function WorksheetPreview(
-  { sentence, lines, traceStyle, fontFamily, onDownloadPdf },
+  { sentence, lines, traceStyle, onDownloadPdf },
   ref,
 ) {
   return (
@@ -24,10 +22,17 @@ const WorksheetPreview = forwardRef(function WorksheetPreview(
       <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/70 bg-white/85 p-6 shadow-playful sm:p-8">
         <div className="no-print flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-bubblegum">🖨️ Worksheet preview</p>
-            <h2 className="mt-2 text-2xl font-black text-slate-800">Printable tracing page</h2>
-            <p className="mt-2 text-sm text-slate-500">Preview the page below, then download it as a PDF or print from your browser.</p>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-bubblegum">
+              🖨️ Worksheet preview
+            </p>
+            <h2 className="mt-2 text-2xl font-black text-slate-800">
+              Printable tracing page
+            </h2>
+            <p className="mt-2 text-sm text-slate-500">
+              Preview the page below, then download it as a PDF or print from your browser.
+            </p>
           </div>
+
           <div className="flex flex-wrap gap-3">
             <button
               type="button"
@@ -36,6 +41,7 @@ const WorksheetPreview = forwardRef(function WorksheetPreview(
             >
               Download as PDF
             </button>
+
             <button
               type="button"
               onClick={() => window.print()}
@@ -51,31 +57,50 @@ const WorksheetPreview = forwardRef(function WorksheetPreview(
             ref={ref}
             className="print-card mx-auto min-h-[1122px] w-full max-w-[794px] rounded-[1.5rem] border-[10px] border-rose-100 bg-white p-6 sm:p-10"
           >
+            {/* Header */}
             <div className="flex items-start justify-between gap-4 border-b-2 border-dashed border-rose-200 pb-6">
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.35em] text-bubblegum">Kids Worksheet Generator</p>
-                <h3 className="mt-2 text-3xl font-black text-slate-800">Trace the sentence</h3>
+                <p className="text-sm font-bold uppercase tracking-[0.35em] text-bubblegum">
+                  Kids Worksheet Generator
+                </p>
+                <h3 className="mt-2 text-3xl font-black text-slate-800">
+                  Trace the sentence
+                </h3>
                 <p className="mt-3 max-w-xl text-base text-slate-500">
                   Read the sentence aloud, trace each line carefully, and say the words with a big smile.
                 </p>
               </div>
+
               <div className="rounded-3xl bg-sky-50 px-4 py-3 text-right text-sm font-bold text-slate-500">
                 <p>Name: ____________________</p>
                 <p className="mt-2">Date: _____________________</p>
               </div>
             </div>
 
+            {/* Practice Sentence */}
             <div className="mt-8 rounded-3xl bg-yellow-50 p-4">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">Practice sentence</p>
-              <p className="mt-2 text-2xl font-black text-slate-800" style={{ fontFamily }}>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
+                Practice sentence
+              </p>
+
+              <p
+                className="mt-2 text-2xl tracking-[0.2em] text-gray-400"
+                style={{
+                  fontFamily: '"Raleway Dots", cursive', // ✅ dotted here too
+                }}
+              >
                 {sentence}
               </p>
-              <p className="mt-2 text-sm text-slate-500">Style: {traceStyle} • Keep your pencil on the line.</p>
+
+              <p className="mt-2 text-sm text-slate-500">
+                Keep your pencil on the line.
+              </p>
             </div>
 
+            {/* Lines */}
             <div className="mt-6 space-y-1">
               {lines.map((line, index) => (
-                <TraceLine key={`${line}-${index}`} text={line} styleVariant={traceStyle} fontFamily={fontFamily} />
+                <TraceLine key={`${line}-${index}`} text={line} />
               ))}
             </div>
           </div>
