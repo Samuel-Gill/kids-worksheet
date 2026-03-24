@@ -85,7 +85,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-sky-50 to-yellow-50 font-display text-slate-700">
+    <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-rose-50 via-sky-50 to-yellow-50 font-display text-slate-700">
       <div className="min-h-screen">
         <Navbar activeSection={activeSection} />
         <main>
