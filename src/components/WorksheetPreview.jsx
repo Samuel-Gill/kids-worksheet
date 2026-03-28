@@ -1,13 +1,15 @@
 import { forwardRef } from 'react';
 
-function TraceLine({ text, traceStyle, fontFamily }) {
+function TraceLine({ text, traceStyle }) {
   const borderStyle = traceStyle === 'dashed' ? 'border-dashed' : 'border-dotted';
 
   return (
     <div className={`border-b ${borderStyle} border-slate-200 py-2 sm:py-3`}>
       <p
         className="break-words text-2xl tracking-[0.18em] text-gray-400 sm:text-3xl md:text-4xl"
-        style={{ fontFamily }}
+        style={{
+          fontFamily: '"Raleway Dots", cursive',
+        }}
       >
         {text}
       </p>
